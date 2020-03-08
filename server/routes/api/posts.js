@@ -12,11 +12,11 @@ router.get('/', async (req, res) => {
 
 async function loadPostsCollection() {
     const client = await mongodb.MongoClient.connect(
-        "mongodb+srv://choi:*wogur95*@cluster0-f7sw4.mongodb.net/test?retryWrites=true&w=majority",
+        "mongodb+srv://yuwon:john119@jyp-hppms.mongodb.net/test",
       {useNewUrlParser: true, useUnifiedTopology: true}
     );
   
-    return client.db('cluster0').collection('full-stat-db');
+    return client.db('JYP').collection('Wevity');
   }
   
   module.exports = router;

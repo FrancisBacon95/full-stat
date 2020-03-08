@@ -1,22 +1,38 @@
 <template>
   <div>
     <div>공모전/대회</div>
-    <b-table striped hover :items="items"></b-table>
+    <b-table striped hover :items="posts" :fields="fields"></b-table>
   </div>
 </template>
 
 <script>
+import {getPosts} from '../PostService';
+
   export default {
     name : 'Board',
+    async created() {
+      const ret = await getPosts()
+      this.posts=ret.data;      
+    },
     data() {
       return {
-        items: [
-          { age: 40, first_name: 'Dickerson', last_name: 'Macdonald' },
-          { age: 21, first_name: 'Larsen', last_name: 'Shaw' },
-          { age: 89, first_name: 'Geneva', last_name: 'Wilson' },
-          { age: 38, first_name: 'Jami', last_name: 'Carney' }
+        posts: [],
+        error: "",
+        fields: [
+          {
+            key: "title",
+            label: "제목"
+          },
+          {
+            key: "date",
+            label: "마감날짜"
+          },
+          {
+            key: "start_date",
+            label: "시작날짜"
+          }
         ]
       }
-    }
+    },
   }
 </script>
