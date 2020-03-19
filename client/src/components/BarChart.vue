@@ -1,0 +1,97 @@
+<script>
+  import { Bar } from 'vue-chartjs'
+  import {getPosts} from '../PostService';
+
+  export default {
+    extends: Bar,
+    async created() {
+      const ret = await getPosts()
+      this.data=ret.data;
+      var calender={
+        '1월':0,
+        '2월':0,
+        '3월':0,
+        '4월':0,
+        '5월':0,
+        '6월':0,
+        '7월':0,
+        '8월':0,
+        '9월':0,
+        '10월':0,
+        '11월':0,
+        '12월':0,
+      }
+      for(var index in this.data){
+          if (this.data[index].month === '1'){
+              calender['1월']+=1;
+          } else if (this.data[index].month === '2'){
+              calender['2월']+=1;
+          } else if (this.data[index].month === '3'){
+              calender['3월']+=1;
+          } else if (this.data[index].month === '4'){
+              calender['4월']+=1;
+          } else if (this.data[index].month === '5'){
+              calender['5월']+=1;
+          } else if (this.data[index].month === '6'){
+              calender['6월']+=1;
+          } else if (this.data[index].month === '7'){
+              calender['7월']+=1;
+          } else if (this.data[index].month === '8'){
+              calender['8월']+=1;
+          } else if (this.data[index].month === '9'){
+              calender['9월']+=1;
+          } else if (this.data[index].month === '10'){
+              calender['10월']+=1;
+          } else if (this.data[index].month === '11'){
+              calender['11월']+=1;
+          } else if (this.data[index].month === '12'){
+              calender['12월']+=1;
+          } 
+      }
+      this.datasets= [
+            {
+              label: 'Data One',
+              backgroundColor: '#f87979',
+              pointBackgroundColor: 'white',
+              borderWidth: 1,
+              pointBorderColor: '#249EBF',
+              data: calender
+            }
+          ]   
+    },
+    data () {
+      return {
+        data: [],
+        datacollection: {
+          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+          datasets: []
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              },
+              gridLines: {
+                display: true
+              }
+            }],
+            xAxes: [ {
+              gridLines: {
+                display: false
+              }
+            }]
+          },
+          legend: {
+            display: true
+          },
+          responsive: true,
+          maintainAspectRatio: false
+        }
+      }
+    },
+    mounted () {
+      this.renderChart(this.datacollection, this.options)
+    }
+  }
+</script>

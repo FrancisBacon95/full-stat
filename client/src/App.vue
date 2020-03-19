@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Header/>
+    <VueChartJS/>
     <router-view/>
     <Footer/>
   </div>
@@ -9,10 +10,11 @@
 <script>
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import VueChartJS from '@/components/VueChartJS'
 export default {
   name : 'App',
   components:{
-    Header,Footer
+    Header,Footer,VueChartJS
   }
 }
 </script>

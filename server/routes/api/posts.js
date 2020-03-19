@@ -16,7 +16,7 @@ async function loadPostsCollection() {
     {useNewUrlParser: true, useUnifiedTopology: true}
   );
 
-  return client.db('cluster0').collection('full-stat-db');
+  return client.db('cluster0').collection('asdf');
 }
   
   module.exports = router;

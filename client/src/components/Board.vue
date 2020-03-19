@@ -12,7 +12,7 @@ import {getPosts} from '../PostService';
     name : 'Board',
     async created() {
       const ret = await getPosts()
-      this.posts=ret.data;      
+      this.posts=ret.data;    
     },
     data() {
       return {
