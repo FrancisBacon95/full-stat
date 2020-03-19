@@ -1,13 +1,13 @@
 <script>
   import { Bar } from 'vue-chartjs'
-  import {getPosts} from '../PostService';
-
+  import {getPosts} from '../PostService'; //최초의 데이터를 가져올 수 있도록 하는 함수를 가져온다.
   export default {
     extends: Bar,
     async created() {
       const ret = await getPosts()
-      this.data=ret.data;
-      var calender={
+      this.data=ret.data; //this.data에 최초의 데이터를 저장한다.
+      var calender={ 
+        //calender변수: 최초 데이터 중 month를 카운팅해서 12달을 모을 수 있도록 12개의 파라미터를 가진 array를 만든다.
         '1월':0,
         '2월':0,
         '3월':0,
@@ -21,6 +21,7 @@
         '11월':0,
         '12월':0,
       }
+      //for문을 통해 최초의 데이터에 있는 month를 하나씩 카운팅해서 calender에 1씩 올린다.
       for(var index in this.data){
           if (this.data[index].month === '1'){
               calender['1월']+=1;
@@ -55,7 +56,7 @@
               pointBackgroundColor: 'white',
               borderWidth: 1,
               pointBorderColor: '#249EBF',
-              data: calender
+              data: calender //datasets 중 data 파라미터에 calender를 넣어준다.
             }
           ]   
     },
