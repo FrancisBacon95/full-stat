@@ -8,7 +8,7 @@ export default {
   mounted() {
     const url = "api/posts/";
     axios.get(url).then(res => {
-      console.log(res);
+      //console.log(res);
       this.data = res.data;
       //calender data
       let calender=[0,0,0,0,0,0,0,0,0,0,0,0];
@@ -18,7 +18,7 @@ export default {
       }
       this.datasets = [
         {
-          label: "Data One",
+          label: "월간 업로드량",
           backgroundColor: "#f87979",
           pointBackgroundColor: "white",
           borderWidth: 1,

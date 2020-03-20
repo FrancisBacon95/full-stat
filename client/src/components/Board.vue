@@ -1,7 +1,20 @@
 <template>
-  <div>
-    <div>공모전/대회</div>
-    <b-table striped hover :items="posts" :fields="fields"></b-table>
+  <div style="margin: 5% 5% 5% 5%">
+    <hr>
+    <h3>공모전/대회</h3>
+    <b-table striped hover
+      id="my-table" 
+      :items="posts" 
+      :fields="fields"
+      :per-page="perPage"
+      :current-page="currentPage"
+      ></b-table>
+    <b-pagination
+      v-model="currentPage"
+      :total-rows="rows"
+      :per-page="perPage"
+      aria-controls="my-table"
+      align="center"></b-pagination>
   </div>
 </template>
 
@@ -12,10 +25,12 @@ import {getPosts} from '../PostService';
     name : 'Board',
     async created() {
       const ret = await getPosts()
-      this.posts=ret.data;    
+      this.posts=ret.data;   
     },
     data() {
       return {
+        currentPage: 1,
+        perPage: 10,
         posts: [],
         error: "",
         fields: [
@@ -24,15 +39,32 @@ import {getPosts} from '../PostService';
             label: "제목"
           },
           {
-            key: "date",
+            key: "ed",
             label: "마감날짜"
           },
           {
-            key: "start_date",
+            key: "sd",
             label: "시작날짜"
           }
         ]
       }
     },
+    computed: {
+      rows() {
+        return this.posts.length;
+        }
+    },
+    methods: {
+    rowClick(item) {
+      this.$router.push({
+        path: `${item.content_id}`
+      });
+    },
+    /*
+    onClickRedirect(item) {   
+          window.open(`${item.content_id}`, "_blank");   
+    }
+    */
   }
+}
 </script>

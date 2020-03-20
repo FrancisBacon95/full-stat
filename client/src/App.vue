@@ -3,18 +3,20 @@
     <Header/>
     <VueChartJS/>
     <router-view/>
-    <Footer/>
+    <!--<Footer/>-->
   </div>
 </template>
 
 <script>
 import Header from '@/components/Header'
-import Footer from '@/components/Footer'
+//import Footer from '@/components/Footer'
 import VueChartJS from '@/components/VueChartJS'
 export default {
   name : 'App',
   components:{
-    Header,Footer,VueChartJS
+    Header,
+    /*Footer,*/
+    VueChartJS
   }
 }
 </script>
