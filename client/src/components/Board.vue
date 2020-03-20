@@ -8,6 +8,7 @@
       :fields="fields"
       :per-page="perPage"
       :current-page="currentPage"
+      @row-clicked="onClickRedirect"
       ></b-table>
     <b-pagination
       v-model="currentPage"
@@ -55,16 +56,17 @@ import {getPosts} from '../PostService';
         }
     },
     methods: {
+    /*  
     rowClick(item) {
       this.$router.push({
         path: `${item.content_id}`
       });
     },
-    /*
-    onClickRedirect(item) {   
-          window.open(`${item.content_id}`, "_blank");   
-    }
     */
+    onClickRedirect(item) {   
+          window.open(`${item.url}`, "_blank");   
+    }
+    
   }
 }
 </script>
