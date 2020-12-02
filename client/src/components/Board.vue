@@ -1,7 +1,7 @@
 <template>
   <div style="margin: 5% 5% 5% 5%">
     <hr>
-    <h3>공모전/대회</h3>
+    <h3><strong>공모전/대회</strong></h3>
     <b-table striped hover
       id="my-table" 
       :items="posts" 
@@ -36,7 +36,7 @@ import {getPosts} from '../PostService';
         error: "",
         fields: [
           {
-            key: "title",
+            key: "﻿title",
             label: "제목"
           },
           {

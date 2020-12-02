@@ -9,8 +9,10 @@ app.use(bodyParser.json());
 app.use(cors());
 
 const posts = require('./routes/api/posts');
-
 app.use('/api/posts', posts); 
+
+const chartposts = require('./routes/api/chartposts');
+app.use('/api/chartposts', chartposts); 
 
 
 //Handle production

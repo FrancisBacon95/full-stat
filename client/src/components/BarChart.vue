@@ -6,7 +6,7 @@ import axios from "axios";
 export default {
   extends: Bar,
   mounted() {
-    const url = "api/posts/";
+    const url = "api/chartposts/";
     axios.get(url).then(res => {
       //console.log(res);
       this.data = res.data;
