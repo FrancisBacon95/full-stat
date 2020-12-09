@@ -21,7 +21,6 @@
 
 <script>
 import {getPosts} from '../PostService';
-
   export default {
     name : 'Board',
     async created() {
