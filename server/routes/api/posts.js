@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
 
 async function loadPostsCollection() {
   const client = await mongodb.MongoClient.connect(
-      "mongodb+srv://choi:*wogur95*@cluster0-f7sw4.mongodb.net/test?retryWrites=true&w=majority",
+      "mongodb+srv://choisID:choisPW@cluster0-f7sw4.mongodb.net/test?retryWrites=true&w=majority",
     {useNewUrlParser: true, useUnifiedTopology: true}
   );
 
